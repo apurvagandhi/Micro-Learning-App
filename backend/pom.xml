@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microlearning</groupId>
-	<artifactId>api</artifactId>
+	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Micro-Learning API</name>
 	<description>Demo project for Spring Boot</description>
