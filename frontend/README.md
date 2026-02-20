@@ -1,56 +1,16 @@
-# Frontend
+# React + Vite
 
-> **⚠️ PLACEHOLDER**: This will be an **Angular** web application (placeholder decision). Final frontend framework will be decided through team discussion and GitHub Discussions.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Angular + TypeScript web application for the Micro-Learning App.
+Currently, two official plugins are available:
 
-## Quick Start
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-```bash
-npm install
-ng serve
-```
+## React Compiler
 
-Visit `http://localhost:4200`
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Setup
+## Expanding the ESLint configuration
 
-See [docs/FRONTEND_SETUP.md](../docs/FRONTEND_SETUP.md) for detailed instructions.
-
-## Structure
-
-```
-src/
-├── app/
-│   ├── components/   # Angular components
-│   ├── services/     # Services
-│   ├── models/       # TypeScript interfaces
-│   ├── guards/       # Route guards
-│   ├── pages/        # Page components
-│   └── app.module.ts # Root module
-├── assets/           # Static assets
-├── environments/     # Environment config
-└── styles/           # Global styles
-```
-
-## Scripts
-
-- `ng serve` - Start dev server
-- `ng build --configuration production` - Build for production
-- `ng lint` - Run ESLint
-- `npm run format` - Format with Prettier
-- `ng test` - Run tests
-
-## Tech Stack (Placeholder)
-
-- **Angular** (framework - placeholder)
-- TypeScript
-- Angular Material (UI components)
-- RxJS (reactive programming)
-- Angular CLI
-
-> **Note**: Framework selection (Angular vs React vs Vue) will be decided based on team discussion and pros/cons review.
-
----
-
-See [../docs/FRONTEND_SETUP.md](../docs/FRONTEND_SETUP.md) for complete documentation.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
