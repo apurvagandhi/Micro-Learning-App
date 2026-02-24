@@ -1,16 +1,32 @@
-/* 
-POST /auth/register (or /auth/signup)
+package com.microlearning.api.controller;
 
-POST /auth/login
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-POST /auth/logout
+import com.microlearning.api.dto.AuthResponse;
+import com.microlearning.api.dto.LoginRequest;
+import com.microlearning.api.dto.RegisterRequest;
+import com.microlearning.api.service.AuthService;
 
-POST /auth/refresh (refresh access token)
+@RestController
+@RequestMapping("/auth")
+public class AuthController {
 
-POST /auth/forgot-password
+  private final AuthService authService;
 
-POST /auth/reset-password
+  public AuthController(AuthService authService) {
+    this.authService = authService;
+  }
 
-POST /auth/verify-email (optional)
+  @PostMapping("/register")
+  public AuthResponse register(@RequestBody RegisterRequest req) {
+    return authService.register(req);
+  }
 
-POST /auth/resend-verification (optional)*/
+  @PostMapping("/login")
+  public AuthResponse login(@RequestBody LoginRequest req) {
+    return authService.login(req);
+  }
+}
