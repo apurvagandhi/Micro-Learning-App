@@ -1,4 +1,4 @@
-package com.microlearning.backend.dto;
+package com.microlearning.api.dto;
 
 public class AuthResponse {
   public String token;

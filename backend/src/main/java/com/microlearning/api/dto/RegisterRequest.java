@@ -1,5 +1,4 @@
-package com.microlearning.backend.dto;
-
+package com.microlearning.api.dto;
 public class RegisterRequest {
   public String username;
   public String email;

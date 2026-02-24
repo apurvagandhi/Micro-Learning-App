@@ -1,14 +1,14 @@
-package com.microlearning.backend.controller;
+package com.microlearning.api.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microlearning.backend.dto.AuthResponse;
-import com.microlearning.backend.dto.LoginRequest;
-import com.microlearning.backend.dto.RegisterRequest;
-import com.microlearning.backend.service.AuthService;
+import com.microlearning.api.service.AuthService;
+import com.microlearning.api.dto.AuthResponse;
+import com.microlearning.api.dto.LoginRequest;
+import com.microlearning.api.dto.RegisterRequest;
 
 @RestController
 @RequestMapping("/auth")

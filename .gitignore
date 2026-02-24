@@ -66,3 +66,7 @@ logs/
 .cache/
 .temp/
 temp/
+
+*.jar
+backend/src/lib/
+

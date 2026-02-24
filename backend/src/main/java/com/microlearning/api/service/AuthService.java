@@ -1,10 +1,10 @@
-package com.microlearning.backend.service;
+package com.microlearning.api.service;
 
 import org.springframework.stereotype.Service;
 
-import com.microlearning.backend.dto.AuthResponse;
-import com.microlearning.backend.dto.LoginRequest;
-import com.microlearning.backend.dto.RegisterRequest;
+import com.microlearning.api.dto.AuthResponse;
+import com.microlearning.api.dto.LoginRequest;
+import com.microlearning.api.dto.RegisterRequest;
 
 @Service
 public class AuthService {
