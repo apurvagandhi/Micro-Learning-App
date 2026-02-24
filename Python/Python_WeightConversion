@@ -1,0 +1,19 @@
+# Python Weight Conversion 
+
+# This program converts pounds(lbs) to kilograms (kgs)
+# OR kgs to lbs 
+
+weight = float(input("Enter the weight: "))
+unit = input("Kilograms of Pounds? (K or L): ")
+unit = unit.upper()   # Makes the input case-insensitive 
+
+if unit == "K":                           # If the original unit is in kilograms 
+    weight *= 2.205                       # multiply by the conversion factor 
+    print(f"The weight is {round(weight,2)} lbs")  # rounding the weight to 2 decimal points 
+elif unit == "L":                         # If the original unit is in pounds 
+    weight *= .454                        # multiply by the conversion factor 
+    print(f" The weight is {round(weight,2)} kgs")
+else:                                     # if they don't enter K or L 
+    print(f"{unit} is not a valid unit")
+
+                                                                 

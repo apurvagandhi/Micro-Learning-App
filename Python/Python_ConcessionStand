@@ -1,0 +1,37 @@
+# Concession Stand Program
+
+# dictionary {key:value}
+
+menu =        {"popcorn": 2.50,
+               "hotdog": 3.75, 
+               "giant pretzel": 3.25,
+               "asst candy": 2.75,
+               "soda": 1.75,
+               "bottled water": 1.25}
+
+cart = []
+total = 0 
+
+print("------------------ MENU ------------------")
+for key, value in menu.items():
+    print(f"{key:20}: ${value:.2f}") #:10 adds 10 spaces after the key word
+
+print("------------------------------------------")
+
+# Asking the user what item they would like from the menu 
+
+while True: 
+    food = input("Select an item (q to quit): ").lower()
+    if food == "q":
+        break 
+    elif menu.get(food) is not None:
+        cart.append(food)
+
+# REMEMBER .get returns the value from a key pair 
+print("------------- YOUR ORDER -------------------")
+for food in cart:
+    total += menu.get(food) # this adds up the costs of each item 
+    print(food, end =" ")   # end = " " adds a space between each menu line instead of a newline character 
+
+print()
+print(f"Total is: ${total:.2f}")

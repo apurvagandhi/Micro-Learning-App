@@ -1,0 +1,41 @@
+# If = Run code only IF some condition is True 
+#      Else = do something else 
+
+age = int(input("Enter your age: "))
+
+if age >= 18:                           # if the user is 18 or older
+    print("You are now signed up!")
+elif age < 0:                               # elseif the user is below 0
+    print("You havent been born yet.....")
+else:                                       # under any other circumstance 
+    print("You must be 18+ to sign up")
+
+# You can add as many else if (elif) statements as you would like! 
+
+# Excercise 1: Would the user like food? 
+
+response = str(input("Would you like some food? (Y/N): "))
+response = response.upper()      # makes the response case-insensitive 
+
+if response == "Y":
+    print("Have some food")
+else: 
+    print("No food for you!")
+
+# Excercise 2: Enter your name 
+
+name = input("Enter your name: ")
+
+if name == "": 
+    print("You did not enter your name!")
+    name = input("Enter your name: ")
+else:
+    print(f"Hello {name}")
+
+# Excercise 3: Booleans in if statements 
+for_sale = True      # setting to true if item is for sale or false if not 
+
+if for_sale:                              # if the item is for sale 
+    print("This item is for sale")        # print verification message 
+else:                                     # if not for sale 
+    print("This item is NOT for sale")    # print otherwise 

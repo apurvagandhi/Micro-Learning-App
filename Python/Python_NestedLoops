@@ -1,0 +1,24 @@
+# nested loops: A loop within another loop (outer, inner)
+                         # outer loop
+                             # inner loop 
+
+# Creating a program that prints a rectangle made with a user-inputted symbol 
+
+rows = int(input("Enter the # of rows: "))
+columns = int(input("Enter the # of columns: "))
+symbol = input("Enter a symbol to use: ")
+
+for x in range(columns) : 
+    for y in range(rows): 
+        print(symbol, end = "" )
+    print()    
+
+
+# To repeat this three times 
+for x in range(3):
+    for y in range(1, 10): # this will print numbers 1-9
+        # this will make all of the numbers print in one line 
+        print(y, end = "" )  # you can add a dash/space/ or some other seperator within the "" to show up between the #'s 
+    print() # adds a new line between each iteration (has to be alligned with the for or it will add a new line after each #)              
+
+

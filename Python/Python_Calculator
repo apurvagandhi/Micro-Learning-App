@@ -1,0 +1,21 @@
+# Python Calculator 
+
+# User picks arithmetic operator 
+operator = input("Enter an operator (+ - * /): ")
+num1 = float(input("Enter the first number: "))      # User inputs the first number for the operation 
+num2 = float(input("Enter the second number: "))    # User inputs the second number for the operation 
+
+if operator == "+":        # if the user choses addition
+    print(num1 + num2)
+
+elif operator == "-":      # elseif the user choses subtraction
+    print(num1 - num2)
+elif operator == "*":      # elseif the user chooses multiplication
+    print(num1 * num2)
+elif operator == "/":      # elseif the user chooses division
+    print(num1/num2)
+
+else:                      # else the user enters something not in the operator list 
+    print(f"{operator} is not a valid operator")   
+    
+

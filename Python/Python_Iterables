@@ -1,0 +1,40 @@
+# Iterables = An object/ collection that can return its elements one at a time,
+# Allowing it to be iterated over in a loop 
+
+numbers = [1, 2, 3, 4, 5]
+
+for number in numbers:  
+    print(number)
+
+# You can also print backwards by utilizing the print function
+for number in reversed(numbers):
+    print(number)
+
+# Tuples are also iterable:
+integers = (5, 6, 7, 8, 9)
+
+for integer in integers:
+    print(integer)
+
+# And Sets: 
+fruits = {"apple", "orange", "coconut", "banana"} 
+
+for fruit in fruits: 
+    print(fruit)
+
+# You CANNOT use a reversed function on sets because they do not have a set order. 
+
+# Strings:
+
+name = "Jaida Dorsey"
+
+for character in name: 
+    print(character, end=" ")
+    print()
+
+# FINALLY Dictionaries (which are the most complicated)
+
+my_dictionary = {"A": 1, "B" : 2, "C" : 3}
+
+for key,value in my_dictionary.items():
+    print(f"{key}: {value}")

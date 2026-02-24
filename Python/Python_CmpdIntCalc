@@ -1,0 +1,33 @@
+# Python compound interest calculator 
+
+# Compound Interest Equation:
+# A (final amount) = P(Initial Principal Balance)*(1 + (r(interest rate)/n(# of times interest is compunded annually)))^t(number of time periods elapsed)
+
+import math
+
+principal = 0 
+rate = 0 
+time = 0 
+
+while principal <= 0: 
+    principal = float(input("Enter the principal amount: "))
+    if principal <= 0: 
+        print("The principal needs to be greater than 0")
+
+while rate <= 0: 
+    rate = float(input("Enter the interest rate: "))
+    if rate <= 0: 
+        print("The rate needs to be greater than 0")
+
+while time <= 0: 
+    time = float(input("Enter the time elapsed(in yrs): "))
+    if time <= 0: 
+        print("The time needs to be greater than 0")
+        
+print(principal)
+print(rate) 
+print(time)
+
+interest = principal * pow((1 + (rate/100)), time)
+print(f"Your total amount will be ${round(interest, 2):,}")
+

@@ -1,0 +1,60 @@
+# typecasting: the process of converting one data type to another
+#                   (string, integer, float, boolean)
+#                  Explicit vs Implicit
+
+# EXPLICIT TYPECASTING: manually converting a varaible into a different data type
+
+name = "Jaida"    # String 
+lastname = ""
+age = 18          # Integer 
+gpa = 3.5         # Float 
+student = True    # Boolean
+
+# Printing the type of the variables (name should be a string)
+print(type(name))
+print(type(age))
+print(type(gpa))
+print(type(student))
+
+# typecasting ex. converting age to a float type 
+age = float(age)
+print(age)         # now the value should be 18.0
+print(type(age))   # and variable type will be float 
+
+# typecasting ex. converting gpa to a integer 
+gpa = int(gpa)
+print(gpa)         # now the value should be 4
+print(type(gpa))   # and variable type will be integer 
+
+# typecasting ex. converting student boolean to a string 
+student = str(student)
+print(student)         # it should now be the string "True"
+print(type(student))   # and variable type will be string
+
+# typecasting ex. converting age to a boolean
+# Any value that is not 0 will be true pos or neg 
+
+age = bool(age)
+print(age)
+print(type(age))
+
+# typecasting ex. converting lastname to a boolean
+# this is useful when seeing is a user inputs something valid when prompted 
+# ex. if a user is asked for their name and they enter nothing, it will be false. 
+
+lastname = bool(lastname)
+print(lastname)
+print(type(lastname))
+
+
+# IMPLICIT TYPECASTING: when a value or variable is converted into a differnet data type automatically 
+
+x = 2      # integer 
+y = 2.0    # float 
+
+x = x / y  # dividing an integer(x) by a float(y)
+
+# printing x to see what data type it is now
+print(x)
+
+# x is now a float (1.0)

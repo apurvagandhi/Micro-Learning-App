@@ -1,0 +1,57 @@
+# USER INPUT 
+# to accept user input, utilize the input() function 
+name = input("Enter your name: ")
+
+# If you wanted to mathatically manipulate the age, ex (age = age +1 )
+# you would have to convert age from string to an integer '
+# So, to manipulate:
+age = int(input("Enter your age: "))
+age = age + 1
+
+# using this input in a print statement 
+print(f"Hello {name}")
+print(f"You are {age} years old")
+
+
+# User Input Exercise 1: MadLibs Game 
+adjective1 = input("Enter an adjective: ")
+noun = input("Enter a noun: ")
+adjective2 = input("Enter an adjective: ")
+verb = input("Enter a verb: ")
+adjective3 = input("Enter an adjective: ")
+
+print(f"Today I went to a {adjective1} zoo")
+print(f"In an exhibit, I saw {noun}")
+print(f"{noun} was {adjective2} and {verb}ing")
+print(f"I was {adjective3}")
+
+# User Input Exercise 2: Volume/Area of a Rectangle 
+# This program will calculate the area of a rectangle based on user input 
+length = int(input("Enter the length of the rectangle (in inches): "))   # prompting the user for the length
+width = int(input("Enter the width of the rectangle (in inches): "))     # prompting the user for the width 
+height = int(input("Enter the height of the rectangle (in inches): "))   # prompting the user for the height
+
+Area = length * width # equation for area of a rectangle 
+Volume = length * width * height # equation for volume of a rectangle 
+
+print(f"The area of the rectangle is {Area} in^2")   # displays calculated area 
+
+print(f"The volume of the rectangle is {Volume} in^3")   # displays calculated volume 
+
+# User Input Excercise 3: Shopping Cart 
+item = input("What item would you like to buy?: ")
+price = float(input("What is the price?: "))
+quantity = int(input("How many would you like?: ")) 
+
+totalprice = quantity * price 
+
+if quantity == 1:
+     print(f"You have added {quantity} {item}. Your total is ${round(totalprice, 2)}") # rounding the total to 2 decimal points 
+
+else:  
+    print(f"You have added {quantity} {item}s. Your total is ${round(totalprice, 2)} ") # rounding the total to 2 decimal points 
+
+
+# review: to trunctate a float to a specific number of decimal points, use the round() function and include the number of decimal
+# points you'd like to go up to after the variable, follwing a comma, (like shown above)
+

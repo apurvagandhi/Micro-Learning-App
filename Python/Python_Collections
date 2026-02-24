@@ -1,0 +1,80 @@
+# collection: single "variable" used to store multiple values 
+#   List = [] ordered and changable. Duplicates OK.
+#   Set = {} unordered and immutable, but Add/Remove OK. NO duplicates 
+#   Tuple = () ordered and unchangable. duplicates OK. FASTER
+
+fruits = ["apple", "orange", "banana", "coconut"] # this is a LIST
+
+print(fruits)
+
+# you can index each item in a list, the position folows the rules of the strings etc 0 1 2 3 
+print(fruits[3]) # indexing the word "coconut"
+print(fruits[0:3]) # indexing the first 3 words: apple, orange, banana 
+
+# to find if a specific value is in a collection, use the "in" operator 
+print("apple" in fruits) # returns TRUE 
+
+# you can also iterate over collections with loops:
+
+for fruit in fruits: 
+    print(fruit)
+
+# you can alter the list after as well. just index into a position and change the value. ex: 
+fruits[0] = "pineapple"
+print(fruits) # now the first value is pineapple 
+
+# you can append an element (add a new element to the end of a list)
+fruits.append("mango") 
+print(fruits)
+
+# you can also remove an element 
+fruits.remove("banana")
+print(fruits)
+
+# you can also insert an element at a given position in a list .insert(position, value)
+fruits.insert(0, "papaya" )
+print(fruits)
+
+# you can use the sort function to sort the elements in alphabetical order 
+fruits.sort()
+print(fruits)
+
+# to reverse the order of a list use the reverse function
+fruits.reverse()
+print(fruits)
+
+# to remove all the elements in a list you would use fruits.clear()
+# to return the index of a value you would use print(fruits.index("coconut"))
+# you can count the amount of times an element appears in a list fruits.count("item")
+
+# Now, lets talk about SETS {}
+# unordered, immutable, add/remove OK, NO duplicates 
+pets = {"dog", "cat", "snake", "fish"}
+
+print(pets) # when you print a set, it should be in a different order each time 
+
+# You cannot index into a set because they are unordered 
+# you cannot alter the values in a set, but you can add and remove 
+
+pets.add("bunny")
+print(pets)
+pets.remove("fish")
+print(pets)
+# pets.pop()  this function will remove whatever element is first, no telling what that will be though 
+# pets.clear() this function will clear all the elements in a set 
+
+# FINALLY, lets talk about tuples: 
+#   Tuple = () ordered and unchangable. duplicates OK. FASTER
+
+colors = ("red", "orange", "yellow", "green", "blue", "blue")
+# len() function can be used in a tuple 
+# in operator can be used in a tuple to check and see if an element in contained within one 
+
+print(colors.index("green")) # finding the position of the color green in the tuple 
+print(colors.count("blue")) # counts how many times blue appears in the tuple and prints 
+
+# you can iterate over each element in the tuple as well 
+# print(fruits)
+for color in colors: 
+    print(color)
+

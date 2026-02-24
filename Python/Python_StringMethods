@@ -1,0 +1,89 @@
+# String Methods 
+
+name = input("Enter your full name: ")
+phone_number = input("Enter your phone number: ")
+
+# NEW FUNCTIONS: 
+# len()
+# .find()
+# .rfind()
+# .capitalize()
+# .upper()
+# .lower()
+# .isdigit()
+# .isalpha()
+# .count()
+# .replace()
+
+# len() function finds the length of a string #
+# length of string includes spaces 
+result = len(name)
+print(result)
+
+# .find() function finds the first occurance of a character within a string (the position) #
+result2 = name.find("a")
+print(result2)
+
+# for my name (Jaida Dorsey) the first occurence of 'a' would be positon 1 because positions start at 0 (J would be 0)
+# J a i d a   D o r s e y 
+# 0 1 2 3 4 5 6 7 8 9 10 11
+
+# to find the last occurence, you would use the function .rfind() (r meaning reverse)
+result3 = name.rfind("a")
+print(result3)
+
+# it will return position 4 if for the last occurence of 'a'
+# if there are no occurences of a character in a string, it will return -1 
+
+# To capitalize the first letter of a string, use .capitalize() function 
+result4 = name.capitalize()
+print(result4)
+
+# To capitalize ALL letters in a string, use the .upper() function, to make them all lowercase use .lower()
+result5 = name.upper()
+print(result5)
+result6 = name.lower()
+print(result6)
+
+# isdigit() is a boolean function that returns True if all characters in a string are digits 
+result7 = name.isdigit()
+print(result7)
+
+# isalpha() returns true if all characters in a string are alpahbetical characters 
+result8 = name.isalpha()
+print(result8)
+
+# it will return False if the string contains any spaces 
+
+# .count() function returns the number of occurences of a character in a string 
+result9 = phone_number.count("-") # find the number of dashes 
+print(result9)
+
+# .replace() function replaces a character in a string with another 
+phone_number = phone_number.replace("-", " ")  # replacing dashes with empty space 
+
+print(phone_number)
+
+# to find all of the string functions that will be helpful in the future you can utilize: 
+# print(help(str))
+
+# Validate User Input Exercise 
+# Must meet these specifications: 
+# 1. username is no more than 12 characters 
+# 2. username must not contain spaces 
+# 3. username must not contain digits 
+
+name = input("Enter a username: ")
+
+spacecount = name.count(" ")
+length = len(name)
+
+
+if spacecount > 0:
+    print("You cannot have any spaces in your username")
+elif length > 12: 
+    print("Your username cannot be more than 12 characters")
+elif any (char.isdigit() for char in name):                 # you could also use the function isalpha() and write elif not name.isalpha()
+    print("Your username cannot contain any digits")
+else:
+    print(f"Your new username is: {name} ")

@@ -1,0 +1,13 @@
+# Email Slicer Program
+
+email = input("Enter your email: ")  # example email: jndorsey724@gmail.com
+
+# to slice the email so that the username and domain are split, you need to find the index of the @
+# there is a given index function for strings 
+
+index = email.index("@")  # finding the index of the @ symbol 
+
+username = email[:index]  # username is the index from the beginning to the @ symbol (non-inclusive)
+domain = email[index + 1:]    # the domain is the index from the @ symbol to the end 
+                              # to omit the @ symbol you add 1 to the position
+print(f"Your username is {username} and domain is {domain}")

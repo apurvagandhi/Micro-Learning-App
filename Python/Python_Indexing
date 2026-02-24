@@ -1,0 +1,27 @@
+# indexing: acessing elements of a sequence using [] (indexing operator)
+#          [start : end : step]
+
+credit_number = "1234-5678-9012-3456"
+
+print(credit_number[0]) # this is indexing position 0 of the credit number which will give the 1st value
+#                         '1' 
+# if you want the first four digits of a string: 
+print(credit_number[0:4])
+# You could just do [:4] because python assumes that you are starting at position 0 
+
+# if you want to index the last number in a string, use [-1]
+print(credit_number[-1])
+
+# if you wanted the second to last you would use [-2], then third to last [-3], and so on...
+
+# you can also just use a step without starting or end postion, python will assume beginning to end
+credit_number[::2]    # from position 0 to the end with a step of 2
+
+# Exercise: getting the last four digits of a credit card number 
+
+last_digits = credit_number[-4:]   # beginning at negative 4 and going to the end (not necessary to include end or steps )
+print(last_digits)
+
+# if you wanted to print a number backwards: 
+newcredit_number = credit_number[::-1]
+print(newcredit_number)

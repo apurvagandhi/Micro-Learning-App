@@ -1,0 +1,18 @@
+# importing the time module in 
+import time 
+
+# prompt the user to ask how long they would like to set a timer for.
+my_time = int(input("Enter the time in seconds: "))
+
+# to make the timer count backwards: 
+for x in range (my_time, 0, -1): # starting at user inputted number, ending at 0, with a step of -1 (decreasing)
+    seconds = x % 60 # the modulus operator (%) gives you the remainder of any division
+    minutes = int(x/60) % 60
+    hours = int(x/3600)
+    print(f"{hours:02}:{minutes:02}:{seconds:02}") # printing display (:02) zero pads to 2 decimal points 
+    time.sleep(1) # after each iteration, the program will sleep for 1 second 
+
+# time.sleep() program will sleep for a given amount of seconds.. whatever is inserted into parenthesis 
+
+print("TIME'S UP!") # after 3 seconds, the program will display "TIME'S UP!" message.
+

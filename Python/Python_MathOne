@@ -1,0 +1,74 @@
+# Arithmetic Operators 
+
+# Augmented Assignment Operators 
+
+friends = 10
+
+# friends = friends + 1   (This is how we would typically manipulate a variable to add one to it, however...)
+# you can also use: 
+# friends += 1  # This also translates to friends = friends + 1 
+
+# if you wanted to do a subtraction problem instead you could say 
+# friends -= 2 
+
+# for multiplication: 
+# friends *= 3
+
+# for division
+# friends /= 2 
+
+# for exponents (friends = friends **2)
+# friends **= 2 
+
+# if you want the remainder of a division equation, you assign a modulus (%) 
+
+remainder = friends % 3 # friends divided by 3 will give you a remainder of 3 
+
+print(friends)
+
+# Built in Math Functions
+
+x = 9 
+y = -4
+z = 5
+a = 9.2 
+
+result1 = round(x)         # rounds the input 
+result2 = abs(y)           # absolute value of input 
+result3 = pow(4,3)         # computes 4 to the power of 3 (pow(input, exponent))
+result4 = max(x, y, z)     # provides the maximum value between x y and z 
+result5 = min(x, y, z)     # provides the minimum value between x y and z 
+
+import math                # imports math toolbox 
+print(math.pi)             # prints numerical value for pi (3.1415926....)
+result = math.sqrt(9)      # math.sqrt gives the square root of a function
+print(result)              # result = 3 
+
+result6 = math.ceil(a)     # rounds whatever input value UP (the answer for rounding a(9.2 would be 10))
+result7 = math.floor(a)    # rounds whatever input value DOWN (the answer for rounding a would be 9)
+
+# Excercise 1: Circumference of a Circle 
+
+       # Circumference = 2*pi*r 
+
+radius = float(input("Enter the radius of the circle: ")) # has to be in a float format when multiplying in a sequence with other floats 
+
+Circumference = 2*math.pi*radius 
+print(f"The circumference of the circle is {round(Circumference,2)} cm")
+
+# Excercise 2: Area of a Circle 
+
+        # Area = pi*(r^2) 
+
+Area = math.pi * pow(radius,2)
+print(f"The area of the circle is {round(Area,2)} cm^2")
+
+# Excercise 3: The hypotenuese of a right-angle triangle 
+        
+        # Hypotenuese(c) = sqrt(a^2 + b^2)
+j = float(input("Enter side a: "))
+k = float(input("Enter side b: "))
+
+Hypot = math.sqrt((pow(j,2)+pow(k,2)))
+
+print(f"The hypotenuese of the triange is {Hypot}")

@@ -1,0 +1,47 @@
+# dictionary: a collection of {key:value} pairs
+#            ordered and changeable. No duplicates 
+# Example: {ID: Name}, {Item: Price}, etc 
+
+# dictionaries are enclosed in a set of curly braces 
+capitals = {"USA": "Washington D.C. ",
+             "India": "New Delhi", 
+             "China":"Beijing", 
+             "Russia":"Moscow"}  # Country: Capital 
+
+# to get one of the values from a dictionary: 
+print(capitals.get("USA")) # This would print the dictionaries associated value (Washington D.C.)
+
+# You can integrate dictionaries within loops: 
+if capitals.get("Japan"): # if it returns a value 
+    print("That capital exists")    # print this statement 
+else:  # if it does not return a value 
+    print("That capital doesn't exist")    # print this statement 
+
+# To update your dictionary: 
+capitals.update({"Germany":"Berlin"})
+# You can also update prexisting key value pairs
+capitals.update({"USA": "Detroit"})
+# To remove key value pair, use the pop function
+capitals.pop("China")
+# To remove the LATEST key value pair: 
+capitals.popitem() # This would remove Germany : Berlin
+# to clear the entire dictionary:
+# capitals.clear()
+
+# To get all of the keys within the dictionary, but not the values:  ("Germany, China, Russia")
+keys = capitals.keys 
+
+# To iterate over each key 
+
+for key in capitals.keys():
+    print(keys)
+
+# To instead get all of the values:
+values = capitals.values()
+print(values)
+
+#
+items = capitals.items() # returns a dictionary object that resembles a 2D list of tuples
+
+for key, value in capitals.items(): # printing each key AND value in capitals.items
+    print(f"{key}: {value}")

@@ -1,0 +1,32 @@
+# 2d list: A list made up of lists 
+
+# Creating the individual lists: 
+fruits =     ["apple" , "orange" , "banana", "coconut"]
+vegetables = ["celery", "carrots", "potatoes"]
+meats =      ["chicken", "fish", "turkey"]
+
+# Creating the 2D list: 
+groceries = [fruits, vegetables, meats]
+
+# printing the 2D list 
+print(groceries)
+
+# to index into a 2d list you would use the regular indexing formatting 
+print(groceries[0]) # this will print the first list within the 2D list 
+
+# to index into a specific list WITHIN the 2d list you would have to use 2 index operators 
+print(groceries[1][2]) # compairable to coordinates 
+
+# if you need to iterate over the elements of a 2D list, you can use a nested loop 
+for collection in groceries:
+    for element in collection:
+        print(element)
+
+# Excercise 1: 2D Keypad 
+# I will use a 2D tupple for this exercise 
+num_pad = ((1,2,3), (4,5,6), (7,8,9), ("*", 0, "#"))
+
+for line in num_pad: # for each tuple in num_pad 
+    for element in line: # for each element in each tuple 
+        print(element, end=" ") # print each element while keeping them structured in a line with the elements in their associated tuple
+    print() # print a new line after each tuple 

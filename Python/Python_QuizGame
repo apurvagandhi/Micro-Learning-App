@@ -1,0 +1,53 @@
+# Python Quiz Game 
+
+# initializing the collections necessary for this program
+questions = ("How many elements are in the periodic table?: ",
+             "Which animal lays the largest eggs?: ",
+             "What is the most abundant gas in Earth's atmosphere?: ",
+             "How many bones are in the human body?: ",
+             "Which planet in the solar system is the hottest?")
+
+options = (("A. 116","B. 117","C. 118","D. 119"), 
+           ("A. Whale","B. Crocodile","C. Elephant","D. Ostrich"), 
+           ("A. Nitrogen","B. Oxygen","C. Carbon-Dioxide","D. Hydrogen"), 
+           ("A. 206","B. 207","C. 208","D. 209"), 
+           ("A. Mercury","B. Venus","C. Earth","D. Mars"))
+
+answers = ("C","D","A","A","B")
+guesses = [] # making guesses a list 
+score = 0 
+question_num = 0 
+
+for question in questions: # for each question in the tuple questions
+    print("----------------------------") # printing a decoritive split line 
+    print(question) # printing each question 
+    for option in options[question_num]:  # for each option in the options tuple 
+        print(option) # printing each option 
+
+    guess = input("Enter (A, B, C, or D): ").upper()
+    guesses.append(guess)
+    if guess == answers[question_num]: # if the user-inputted guess matches the answer corresponsing the question # (indexed)
+        score += 1 # adding 1 to the score 
+        print("CORRECT! :D")
+
+    else:
+        print("INCORRECT >:[")
+        print(f"{answers[question_num]} is the correct answer")
+
+    question_num += 1      # question number = question number + 1 
+
+print("----------------------------")
+print("          RESULTS           ")
+print("----------------------------")
+
+print("answers: ", end="")
+for answer in answers:
+    print(answer, end=" ")
+print()
+
+print("guesses: ", end ="")
+for guess in guesses:
+    print(guess, end=" ")
+print()
+score = int(score / len(questions) *100)
+print(f"You earned a score of: {score}%")

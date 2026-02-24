@@ -1,0 +1,23 @@
+# for loops = execute a block of code a fixed number of times.
+#             You can iterate over a range, string, sequence, etc. 
+
+# Example: Counting down from 10 
+
+# x is a counter 
+for x in reversed(range(1, 11)):  # second number in range function is exclusive so you have to put 11 to count to 10
+    print(x)                      # you can add another comma to the range function for the step ex. (start, end, step)
+# this will print 1-10
+print("HAPPY NEW YEAR!")
+
+credit_card ="1234-5678-9012-3456"
+
+for x in credit_card:  # you can print the entirety of a string using this loop (prints every char in credit_card)
+    print(x)
+
+# counting to 20 but excluding x 
+for x in range(1,21):
+    if x == 13:
+        continue # skips the iteration of 13 
+        # or you could use break to get out of the loop entirely 
+    else: 
+        print(x)

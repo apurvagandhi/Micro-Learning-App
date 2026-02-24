@@ -1,0 +1,49 @@
+import random # importing the random module 
+
+# to print all of the list of the functions in this module 
+# print(help(random))
+
+# Creating a tuple of options:
+options = ("rock", "paper", "scissors")
+
+# To generate a random whole integer 
+# number = random.randint(1, 6) # This would produce a random integer between 1-6 (EX rolling a dice)
+
+# print(number) 
+
+# If you need a random floating point number between 1 and 2 use:
+# numone = random.random()
+# random.shuffle()  This function shuffles through a sequence 
+
+
+print(" **** Let's Play Rock Paper Scissors! **** ")
+
+
+
+while True: 
+    play = input("Enter your choice (rock, paper, scissors, or q to quit): ").lower()
+
+    if play == "q":
+        break 
+    
+    if play not in options:
+        print("You did not enter a valid option...")
+        continue
+    
+    option = random.choice(options)
+    print(f"You chose to play {play}")
+    print(f"Your opponent chose to play {option}")
+    if play == option:
+        print("You tied!")
+    elif play == "rock" and option == "scissors":
+        print("You won!")
+    elif play == "paper" and option == "rock":
+        print("You won!")
+    elif play == "scissors" and option == "paper":
+        print("You won!")
+    else:
+        print("You lost.....")
+      
+
+
+

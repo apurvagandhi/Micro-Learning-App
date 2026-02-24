@@ -1,0 +1,42 @@
+# Function = A block of reusable code 
+#           place () after the function name to invoke it. 
+
+# To define a function you would type def and then the function name
+
+def happy_birthday(name, age):
+    print(f"Happy Birthday To {name}!")
+    print(f"You Are {age} Years Old!")
+    print(f"Happy Birthday To {name}!")
+    print()
+
+# happy_birthday("Jaida", 18) # evoking this function will run the statements indented beneath it 
+# happy_birthday("Jaida", 19)
+# happy_birthday("Jaida", 20)
+
+# Example 2 
+def display_invoice(username, amount, due_date):
+    print(f"Hello {username}")
+    print(f"Your bill of ${amount:.2f} is due: {due_date}  ")
+
+# display_invoice("jaidadorsey07", 107.24657, "July 24th" )
+
+# return = statement used to end a function 
+#          and send a result back to the caller 
+
+def add(x, y):
+    z = x + y
+    return z 
+
+def subtract(x, y):
+    z = x - y 
+    return z 
+
+print(add(1, 2))
+
+def create_name(first, last):
+    first = first.capitalize()
+    last = last.capitalize()
+    return first + " " + last  # this concatenates the strings together with one space in between 
+full_name = create_name("jaida", "dorsey")
+
+print(full_name)
