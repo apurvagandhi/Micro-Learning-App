@@ -167,4 +167,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🎉 Acknowledgments
 
-Built with ❤️ by 14 computer science students from NC State University as part of an open-source educational hackathon.
+Built with ❤️ by 14 computer science students from NC State University as part of an open-source educational hackathon. 
