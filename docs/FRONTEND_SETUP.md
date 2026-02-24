@@ -1,70 +1,47 @@
-# Frontend Setup Guide - Angular
+# Frontend Setup Guide - React + Vite
 
 ## Prerequisites
 
 - **Node.js 18+** - [Download](https://nodejs.org/)
-- **npm 9+** (comes with Node.js)
-- **Angular CLI 16+**
+- **npm 9+** (comes with Node.js) or **pnpm/yarn**
 - **Git**
 - **VS Code** (recommended)
+- **Windows Users**: Use Command Prompt (cmd.exe) instead of PowerShell to avoid execution policy issues
 
 ## Installation
 
-### 1. Install Angular CLI
-```bash
-npm install -g @angular/cli
-```
-
-### 2. Create Angular Project (if not already done)
+### 1. Navigate to Frontend Directory
 ```bash
 cd frontend
-ng new . --skip-git --package-manager npm
-# OR if repo already exists
-ng init
 ```
 
-### 3. Install Dependencies
+### 2. Install Dependencies
 ```bash
-cd frontend
 npm install
-
-# Install Material for UI components
-ng add @angular/material
-
-# Install RxJS (already included but good to verify)
-npm install rxjs
-
-# Optional: Install NgRx for state management
-npm install @ngrx/store @ngrx/effects @ngrx/store-devtools
 ```
 
-### 4. Set Up Environment Variables
-Create environment files in `src/environments/`:
+This installs:
+- React 19.2.0
+- React DOM 19.2.0
+- Vite 7.3.1 (build tool)
+- ESLint 9.39.1 (linting)
 
-**`environment.ts` (development)**
-```typescript
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:3000/api/v1',
-  appName: 'Micro-Learning App'
-};
+### 3. Set Up Environment Variables (Optional)
+Create `.env` file in `frontend/` if needed:
+
+```env
+VITE_API_URL=http://localhost:8080/api
+VITE_APP_NAME=Micro-Learning App
 ```
 
-**`environment.prod.ts` (production)**
-```typescript
-export const environment = {
-  production: true,
-  apiUrl: 'https://api.your-domain.com/api/v1',
-  appName: 'Micro-Learning App'
-};
-```
+Access in your React components via: `import.meta.env.VITE_API_URL`
 
-### 5. Start Development Server
+### 4. Start Development Server
 ```bash
-ng serve
+npm run dev
 ```
 
-The application will be available at `http://localhost:4200`
+The application will be available at `http://localhost:5173` (or next available port)
 
 ## Development Workflow
 
@@ -72,12 +49,10 @@ The application will be available at `http://localhost:4200`
 
 ```bash
 # Start development server (hot reload enabled)
-ng serve
-# or
-npm start
+npm run dev
 
 # Build for production
-ng build --configuration production
+npm run build
 
 # Run linting
 ng lint

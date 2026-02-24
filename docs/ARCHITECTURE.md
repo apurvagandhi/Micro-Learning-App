@@ -8,8 +8,8 @@
 └─────────────────────────────────────────────────────────────────┘
 
 ┌──────────────────────────┐         ┌──────────────────────────┐
-│   Frontend (Angular)     │         │   Backend (Python/Java)  │
-│  TypeScript + Material   │◄───────►│   FastAPI or Spring Boot │
+│   Frontend (React)       │         │   Backend (Java)         │
+│  React + Vite            │◄───────►│   Spring Boot 4.0.3      │
 │                          │         │                          │
 │  - Dashboard             │         │  - Authentication        │
 │  - Lesson Creator        │         │  - Lesson APIs           │
@@ -31,21 +31,22 @@
 ## Tech Stack Decisions
 
 ### Frontend
-- **Framework**: Angular with TypeScript
-  - Enterprise-grade framework with strong typing
-  - Comprehensive tooling out-of-the-box
-  - Excellent for team development
-  - Built-in dependency injection
+- **Framework**: React 19.2.0
+  - Fast, lightweight virtual DOM
+  - Excellent component reusability
+  - Large ecosystem and community support
+  - Zero-config build with Vite
   
-- **UI Components**: Angular Material
-  - Pre-built, accessible components
-  - Consistent design system
-  - Reduces development time
+- **Build Tool**: Vite
+  - Lightning-fast dev server
+  - Instant HMR (Hot Module Replacement)
+  - Optimized production builds
+  - Next-generation tooling
   
-- **State Management**: RxJS (built-in) / Optional NgRx
-  - RxJS: Reactive programming paradigm
-  - NgRx: For complex state if needed
-  - Both integrate seamlessly with Angular
+- **State Management**: React Hooks
+  - Built-in React Context API for global state
+  - Simple and performant for most use cases
+  - Optional: Redux for complex state if needed
 
 ### Backend
 - **Runtime Options** (voting on Tuesday):

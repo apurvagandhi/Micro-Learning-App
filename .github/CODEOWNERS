@@ -3,30 +3,10 @@
 # This file defines who should review and approve changes to different parts of the project.
 # GitHub will automatically request reviews from these people when PRs touch these files.
 #
-# For more info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
-
 # Frontend team - reviews all frontend changes
-/frontend/ @frontend-lead-1 @frontend-lead-2
-
+/frontend/ @mbhoop @cespinozaa @Swathi200512 @jaidadorsey07 @trish222 @anishav3rma @apurvagandhi @tramnguyen1712 
 # Backend team - reviews all backend changes
-/backend/ @backend-lead-1 @backend-lead-2
-
-# DevOps/CI-CD team - reviews deployment and infrastructure
-/.github/workflows/ @devops-lead-1 @devops-lead-2
-/docs/DEPLOYMENT.md @devops-lead-1 @devops-lead-2
-
-# Documentation team - reviews all documentation
-/docs/ @docs-lead-1 @docs-lead-2
-*.md @docs-lead-1 @docs-lead-2
-
-# Architecture - tech leads review
-/docs/ARCHITECTURE.md @tech-lead-1 @tech-lead-2
-
-# Everyone should review API changes
-/docs/API.md @tech-lead-1 @tech-lead-2
-
-# Database schema and models
-/backend/src/**/models/ @backend-lead-1 @backend-lead-2
-
-# Contributing guidelines
-CONTRIBUTING.md @project-manager-1 @project-manager-2
+/backend/ @tabiyakhokhar @vrrana07 @aj859 @BhavikaVan @constance07 @Srihitha-Reddy @apurvagandhi @Rj-2171 
+/.github/workflows/ @mbhoop @cespinozaa @Swathi200512 @jaidadorsey07 @trish222 @anishav3rma @tramnguyen1712 @tabiyakhokhar @vrrana07 @aj859 @BhavikaVan @constance07 @Srihitha-Reddy @apurvagandhi @Rj-2171 
+# All Documentation
+/docs/@mbhoop @cespinozaa @Swathi200512 @jaidadorsey07 @trish222 @anishav3rma @tramnguyen1712 @tabiyakhokhar @vrrana07 @aj859 @BhavikaVan @constance07 @Srihitha-Reddy @apurvagandhi @Rj-2171  
