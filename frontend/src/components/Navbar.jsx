@@ -1,22 +1,65 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useState } from 'react';
+import styles from '../styles/Navbar.module.css';
 
-export default function Navbar() {
-  const { user, logout } = useAuth();
+export default function Navbar({ onLogin, onSignup }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  const handleLogin = () => { closeMenu(); onLogin(); };
+  const handleSignup = () => { closeMenu(); onSignup(); };
 
   return (
-    <nav className="navbar">
-      <h2>MicroLearn</h2>
+    <>
+      <nav className={styles.nav}>
+        <a href="/" className={styles.logo}>
+          <div className={styles.logoDot} />
+          MicroLearn
+        </a>
 
-      {user && (
-        <div className="nav-links">
-          <Link to="/dashboard">Courses</Link>
-          <Link to="/dashboard">My Progress</Link>
-          <Link to="/dashboard">Community</Link>
-          <button onClick={logout}>Logout</button>
+        {/* Desktop links */}
+        <div className={styles.links}>
+          <a className={styles.link} href="#features">Features</a>
+          <a className={styles.link} href="#how">How it works</a>
+          <a
+            className={styles.link}
+            href="#"
+            onClick={(e) => { e.preventDefault(); onLogin(); }}
+          >
+            Log in
+          </a>
+          <button className={styles.cta} onClick={onSignup}>
+            Sign Up
+          </button>
         </div>
-      )}
-    </nav>
+
+        {/* Hamburger button (mobile only) */}
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+        >
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+          <span className={styles.bar} />
+        </button>
+      </nav>
+
+      {/* Mobile dropdown */}
+      <div className={`${styles.mobileMenu} ${menuOpen ? '' : styles.hidden}`}>
+        <a className={styles.mobileLink} href="#features" onClick={closeMenu}>Features</a>
+        <a className={styles.mobileLink} href="#how" onClick={closeMenu}>How it works</a>
+        <a
+          className={styles.mobileLink}
+          href="#"
+          onClick={(e) => { e.preventDefault(); handleLogin(); }}
+        >
+          Log in
+        </a>
+        <button className={styles.mobileCta} onClick={handleSignup}>
+          Sign Up
+        </button>
+      </div>
+    </>
   );
 }
