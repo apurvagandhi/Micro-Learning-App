@@ -1,0 +1,43 @@
+.section {
+  padding: 100px 48px;
+  background: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #ededf5;
+  transition: all 0.25s;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.desc {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
