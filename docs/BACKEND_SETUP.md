@@ -1,83 +1,81 @@
 # Backend Setup Guide
 
-> **📢 Backend Tech Decision**: Join GitHub Discussions to vote between **Python + FastAPI** or **Java + Spring Boot**. See [.github/DISCUSSIONS_TEMPLATE.md](../.github/DISCUSSIONS_TEMPLATE.md) for discussion categories.
+> **Backend Stack**: Java 21 + Spring Boot 4.0.3 + PostgreSQL
 
-## Prerequisites (Common)
-- **PostgreSQL 12+** - [Download](https://www.postgresql.org/download/) or use Docker
-- **Docker** (recommended for database)
+## Prerequisites
+- **Java 21** - [Download](https://www.oracle.com/java/technologies/downloads/#java21)
+- **Maven 3.8+** - [Download](https://maven.apache.org/download.cgi)
 - **Git**
+- **Docker** (optional, for PostgreSQL if not using cloud)
 
-## Option 1: Python + FastAPI Setup (Recommended for ease of learning)
+## Spring Boot Setup (Java + Maven)
 
-### Prerequisites
-- **Python 3.9+** - [Download](https://www.python.org/)
-- **pip** (comes with Python)
+### 1. Verify Java Installation
+```bash
+java -version
+```
 
-### 1. Navigate to Backend Directory
+Should show Java 21+
+
+> **Note**: Maven comes with the project via Maven Wrapper (`mvnw.cmd`), so you don't need to install it separately.
+
+### 2. Navigate to Backend Directory
 ```bash
 cd backend
 ```
 
-### 2. Create Virtual Environment
-```bash
-python -m venv venv
+### 3. Configure Database Connection
 
-# Activate
+Edit `src/main/resources/application.properties` to use PostgreSQL:
+```properties
+spring.application.name=Micro-Learning API
+
+# PostgreSQL Configuration (for production/staging)
+spring.datasource.url=jdbc:postgresql://ep-raspy-wildflower-air7x1aa-pooler.c-4.us-east-1.aws.neon.tech/micro_learning?user=neondb_owner&password=YOUR_PASSWORD&sslmode=require&channelBinding=require
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.username=neondb_owner
+spring.datasource.password=YOUR_PASSWORD
+
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+Or use the `local.env` file which contains the remote PostgreSQL connection.
+
+### 4. Install Dependencies
+```bash
+mvn clean install
+```
+
+### 5. Run Development Server
+```bash
 # Windows:
-venv\Scripts\activate
+.\mvnw.cmd spring-boot:run
+
 # macOS/Linux:
-source venv/bin/activate
+./mvnw spring-boot:run
 ```
 
-### 3. Install Dependencies
-```bash
-pip install fastapi uvicorn sqlalchemy psycopg2-binary python-dotenv pydantic pyjwt bcrypt
-pip install -r requirements.txt
-```
+Server runs at `http://localhost:8080`
 
-### 4. Set Up Environment Variables
-Create `.env` file in `backend/`:
-
-```
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/micro_learning
-SECRET_KEY=your-super-secret-key-change-this
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-PORT=3000
-CORS_ORIGIN=http://localhost:4200
-```
-
-### 5. Start PostgreSQL with Docker
-```bash
-docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:15
-
-# Create database
-docker exec -it postgres psql -U postgres -c "CREATE DATABASE micro_learning;"
-```
-
-### 6. Create Database Schema
-```bash
-# Create alembic migrations (if using)
-alembic init migrations
-
-# Run migrations
-alembic upgrade head
-```
-
-### 7. Start Development Server
-```bash
-uvicorn main:app --reload --port 3000
-```
-
-Server runs at `http://localhost:3000`
-
-### FastAPI Project Structure
+### Spring Boot Project Structure
 ```
 backend/
-├── main.py                    # Entry point
-├── app/
-│   ├── api/
-│   │   ├── v1/
+├── pom.xml                    # Maven configuration
+├── src/
+│   ├── main/
+│   │   ├── java/com/microlearning/api/
+│   │   │   ├── Application.java       # Entry point
+│   │   │   ├── controller/            # REST endpoints
+│   │   │   ├── service/               # Business logic
+│   │   │   ├── repository/            # Data access
+│   │   │   ├── model/                 # Entity models
+│   │   │   ├── dto/                   # Data transfer objects
+│   │   │   ├── security/              # JWT & security config
+│   │   │   └── exception/             # Exception handling
+│   │   └── resources/
+│   │       ├── application.properties # Configuration
 │   │   │   ├── __init__.py
 │   │   │   ├── endpoints/
 │   │   │   │   ├── auth.py

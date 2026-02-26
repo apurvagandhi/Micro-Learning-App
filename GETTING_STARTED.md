@@ -8,6 +8,8 @@ Welcome! This guide gets you up and running in 5 minutes.
 
 ## 🚀 Setup in 5 Minutes
 
+> **Windows Users**: Use Command Prompt (cmd.exe), not PowerShell, to avoid npm execution policy issues.
+
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/YOUR-ORG/micro-learning-app.git
@@ -16,26 +18,19 @@ cd micro-learning-app
 
 ### 2. Setup your track
 
-**Frontend (Angular):**
+**Frontend (React + Vite):**
 ```bash
 cd frontend
 npm install
-ng serve
-# Open http://localhost:4200
+npm run dev
+# Open http://localhost:5173
 ```
 
-**Backend (Java or Python - TBD):**
+**Backend (Java + Spring Boot):**
 ```bash
 cd backend
-
-# Python + FastAPI:
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload
-
-# OR Java + Spring Boot:
-mvn spring-boot:run
+.\mvnw.cmd spring-boot:run
+# API runs at http://localhost:8080
 ```
 
 ### 3. Find work & contribute
@@ -95,9 +90,9 @@ Design & Management (3 students)
 ## 🗓️ 10-Day Timeline
 
 ### Day 1-2: Architecture & Setup
-- Design system architecture
+- Review system architecture (React + Spring Boot + PostgreSQL)
 - Set up development environments
-- Initialize projects
+- Run frontend and backend locally
 - Configure CI/CD pipeline
 - Create GitHub issues
 
