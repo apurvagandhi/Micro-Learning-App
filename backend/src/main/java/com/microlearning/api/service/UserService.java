@@ -16,6 +16,41 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// @Service
+// public class UserService {
+//     String subject = SecurityContextHolder.getContext().getAuthentication().getName();
+//     Long userId = Long.parseLong(subject);
+
+//     @Autowired
+//     private UserRepository userRepository;
+
+//     // User currentUser = getCurrentUser();
+    
+//     /* */
+//     public void deleteUserProfile(){
+//         // userRepository.deleteById(currentUser);
+//     }
+
+//     public UserResponse updateUserProfile(String username, String email){
+
+//     }
+
+//     public UserResponse getUserProfile(){
+//         User user = getCurrentUserID(userId);
+
+//         return new UserResponse(
+//             user.getName(),
+//             user.getEmail()
+//         );
+//     }
+
+//     /*Grabs Current User */
+//     public User getCurrentUserID(){
+//        return userRepository.findById(userId).orElse(null);
+//     }
+
+
+
 @Service
 public class UserService {
 
