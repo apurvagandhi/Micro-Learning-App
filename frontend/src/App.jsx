@@ -3,7 +3,6 @@ import './styles/variables.css';
 import AdminDashboard from './pages/AdminDashboard';
 import ContributorDashboard from './pages/ContributorDashboard';
 import UserDashboard from './pages/UserDashboard';
-import './pages/UserDashboard';
 import Home from './pages/Home';
 
 export default function App() {
