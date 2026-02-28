@@ -1,5 +1,5 @@
 package com.microlearning.api.controller;
 
-public class LessonController {
+public class CourseController {
     
 }
