@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import styles from '../styles/AdminDashboard.module.css';
+import styles from '../styles/ContributorDashboard.module.css';
 
 export default function ContributorDashboard() {
   const [courses, setCourses] = useState([]);
