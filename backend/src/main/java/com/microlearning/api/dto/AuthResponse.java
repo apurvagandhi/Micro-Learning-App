@@ -1,11 +1,11 @@
 package com.microlearning.api.dto;
 
 public class AuthResponse {
-  public String token;
+  public String refreshToken;
   public String username;
 
-  public AuthResponse(String token, String username) {
-    this.token = token;
+  public AuthResponse(String refreshToken, String username) {
+    this.refreshToken = refreshToken;
     this.username = username;
   }
 }
