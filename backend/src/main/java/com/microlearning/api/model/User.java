@@ -3,39 +3,49 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-/*Data Base Table */
+/* Data Base Table */
 @Entity
-/*Data Base Table Name*/
+/* Data Base Table Name */
 @Table(name = "accounts")
 public class User {
 
-    /*PRIMARY KEY*/
+    /* PRIMARY KEY */
     @Id
-    /*Determine user_id generation by database SERIAL NUMBER*/
+    /* Determine user_id generation by database SERIAL NUMBER */
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
-    
-    public Long getUser_id(){
-        return user_id;
-    }
 
-    /*Columns */
+    /* Columns */
     private String username;
     private String password;
     private String email;
+    private String bio;      // NEW: added for profile
+    private String avatar;   // NEW: added for profile
     private LocalDateTime created_at;
     private LocalDateTime last_login;
+    private LocalDateTime updated_at; // NEW: tracked for update responses
 
-    // ===== TABIYA'S CHANGES TO USER.JAVA (PLEASE REVIEW) =====
+    // ===== GETTERS & SETTERS =====
+
+    public Long getUser_id() {
+        return user_id;
+    }
 
     // Alias so AuthService user.getId() works
     public Long getId() {
         return user_id;
     }
 
-    // Needed setters for AuthService.register()
+    public String getUsername() {
+        return username;
+    }
+
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
@@ -43,27 +53,34 @@ public class User {
     }
 
     // AuthService expects passwordHash.
-    // Keep Serenity's "password" field and store the hash there.
-    public void setPasswordHash(String passwordHash) {
-        this.password = passwordHash;
-    }
-
-    // Needed getters for AuthService.login() and response
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
+    // Keep "password" field and store the hash there.
     public String getPasswordHash() {
         return password;
     }
 
-    // Optional, keeps naming usable too
+    public void setPasswordHash(String passwordHash) {
+        this.password = passwordHash;
+    }
+
+    // Optional alias
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public LocalDateTime getCreated_at() {
@@ -80,5 +97,13 @@ public class User {
 
     public void setLast_login(LocalDateTime last_login) {
         this.last_login = last_login;
+    }
+
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 }

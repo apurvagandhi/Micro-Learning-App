@@ -1,7 +1,8 @@
 package com.microlearning.api.dto;
 
-/*Note: How front-end should format input data */
+/* Request body for PUT /users/:id */
 public class UpdateProfileRequest {
     public String username;
-    public String email;
+    public String bio;
+    public String avatar;
 }
