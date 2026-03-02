@@ -126,6 +126,7 @@ function UserManagementSection() {
             type="text" 
             placeholder="Search users by name or email..." 
             className={styles.searchInput}
+            aria-label="Search users by name or email"
           />
         </div>
 
