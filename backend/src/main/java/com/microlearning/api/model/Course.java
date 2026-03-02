@@ -2,7 +2,13 @@ package com.microlearning.api.model;
 
 
 import java.time.LocalDateTime;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 
@@ -16,6 +22,8 @@ public class Course {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "course_id")
+private Long courseId;
  
 
 
@@ -29,10 +37,6 @@ private LocalDateTime updatedAt;
 
 @Column(name = "published_at")
 private LocalDateTime publishedAt;
-
-
-@Column(name = "course_id")
-private Long course_id;
 
 
 @Column(name = "title")
@@ -50,7 +54,9 @@ private String slug;
 
 
 
-
+public Course(){
+       
+}
 //Course Object
 public Course(String title, String lessonContent, String slug,LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime publishedAt){
 
