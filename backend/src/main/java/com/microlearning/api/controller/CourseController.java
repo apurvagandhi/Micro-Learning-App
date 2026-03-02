@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.microlearning.api.dto.Course_DTO.CourseRequest;
+import com.microlearning.api.dto.Course_DTO.CourseResponse;
 import com.microlearning.api.service.CourseService;
-import com.microlearning.api.dto.Course_DTO.courseRequest;
-import com.microlearning.api.dto.Course_DTO.courseResponse;
-import com.microlearning.api.model.Course;
+
 
 
 
@@ -27,31 +26,32 @@ public class CourseController {
    @Autowired
     private CourseService courseService;
      
-    @GetMapping("/course")
-    public CourseResponse getCourse(){
-        return courseService.getCourse();
+    @GetMapping("/{courseId}")
+    public CourseResponse getCourse(@PathVariable long courseId){
+        return courseService.getCourse(courseId);
+    }
 
 
         /* POST REQUEST */
-    @PostMapping("/course")
+    @PostMapping
     public CourseResponse createCourse(@RequestBody CourseRequest req){
         return courseService.createCourse(req);
     }
 
 
     /* PATCH REQUEST */
-    @PatchMapping("/course")
-    public CourseRepsonse updateCourse(@RequestBody CourseRequest req){
-        return courseService.updateCourse(req);
+    @PatchMapping("/course/{courseId}")
+    public CourseResponse updateCourse(@PathVariable Long courseId,@RequestBody CourseRequest req){
+        return courseService.updateCourse(courseId, req);
     }
 
 
 
 
     /* DEL REQUEST */
-    @DeleteMapping("/course")
-    public void deleteCourse(){
-        courseService.deleteCourse();
+    @DeleteMapping("/course/{courseId}")
+    public void deleteCourse(@PathVariable Long courseId){
+        courseService.deleteCourse(courseId);
    
     }
 }
