@@ -11,30 +11,33 @@ public class User {
 
     /* PRIMARY KEY */
     @Id
-    /* Determine user_id generation by database SERIAL NUMBER */
+    /* Determine userId generation by database SERIAL NUMBER */
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    @Column(name = "user_id")   // maps Java field "userId" → DB column "user_id"
+    private Long userId;        // renamed from user_id to userId
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    // Alias so AuthService user.getId() works
+    public Long getId() {
+        return userId;
+    }
 
     /* Columns */
     private String username;
     private String password;
     private String email;
-    private String bio;      // NEW: added for profile
-    private String avatar;   // NEW: added for profile
+    private String bio;
+    private String avatar;
     private LocalDateTime created_at;
     private LocalDateTime last_login;
-    private LocalDateTime updated_at; // NEW: tracked for update responses
-
-    // ===== GETTERS & SETTERS =====
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    // Alias so AuthService user.getId() works
-    public Long getId() {
-        return user_id;
-    }
+    private LocalDateTime updated_at;
 
     public String getUsername() {
         return username;
@@ -52,8 +55,6 @@ public class User {
         this.email = email;
     }
 
-    // AuthService expects passwordHash.
-    // Keep "password" field and store the hash there.
     public String getPasswordHash() {
         return password;
     }
@@ -62,7 +63,6 @@ public class User {
         this.password = passwordHash;
     }
 
-    // Optional alias
     public void setPassword(String password) {
         this.password = password;
     }
