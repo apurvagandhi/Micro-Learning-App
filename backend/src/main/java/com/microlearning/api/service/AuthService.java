@@ -1,94 +1,73 @@
 package com.microlearning.api.service;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.util.Optional;
 import java.util.UUID;
 
-<<<<<<< HEAD
-import org.springframework.http.HttpStatus;
-=======
->>>>>>> origin/Develop
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.microlearning.api.dto.AuthResponse;
 import com.microlearning.api.dto.LoginRequest;
 import com.microlearning.api.dto.RegisterRequest;
-import com.microlearning.api.model.AuthToken;
 import com.microlearning.api.model.User;
-import com.microlearning.api.repository.AuthRepository;
 import com.microlearning.api.repository.UserRepository;
 
 @Service
 public class AuthService {
 
-  private final UserRepository userRepository;
-  private final AuthRepository authRepository;
-  private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository userRepository;
 
-  public AuthService(UserRepository userRepository,
-                     AuthRepository authRepository,
-                     PasswordEncoder passwordEncoder) {
-    this.userRepository = userRepository;
-    this.authRepository = authRepository;
-    this.passwordEncoder = passwordEncoder;
-  }
+    public AuthResponse register(RegisterRequest req) {
+        if (req == null) {
+            throw new IllegalArgumentException("invalid request");
+        }
+        if (req.getEmail() == null || req.getEmail().isBlank()) {
+            throw new IllegalArgumentException("email required");
+        }
+        if (req.getUsername() == null || req.getUsername().isBlank()) {
+            throw new IllegalArgumentException("username required");
+        }
+        if (req.getPassword() == null || req.getPassword().isBlank()) {
+            throw new IllegalArgumentException("password required");
+        }
 
-  public AuthResponse register(RegisterRequest req) {
-<<<<<<< HEAD
-    if (req == null || req.email == null || req.password == null || req.username == null) {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "missing fields");
+        Optional<User> existing = userRepository.findByEmail(req.getEmail());
+        if (existing.isPresent()) {
+            throw new IllegalArgumentException("email already used");
+        }
+
+        User u = new User();
+        u.setUsername(req.getUsername());
+        u.setEmail(req.getEmail());
+        u.setPassword(req.getPassword());
+
+        userRepository.save(u);
+
+        String refreshToken = UUID.randomUUID().toString();
+        return new AuthResponse(refreshToken, u.getUsername());
     }
 
-    if (userRepository.existsByEmail(req.email)) {
-      throw new ResponseStatusException(HttpStatus.CONFLICT, "email already exists");
-=======
-    if (userRepository.existsByEmail(req.email)) {
-      throw new IllegalArgumentException("email already exists");
->>>>>>> origin/Develop
+    public AuthResponse login(LoginRequest req) {
+        if (req == null) {
+            throw new IllegalArgumentException("invalid request");
+        }
+        if (req.getEmail() == null || req.getEmail().isBlank()) {
+            throw new IllegalArgumentException("email required");
+        }
+        if (req.getPassword() == null || req.getPassword().isBlank()) {
+            throw new IllegalArgumentException("password required");
+        }
+
+        User u = userRepository
+                .findByEmail(req.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("invalid credentials"));
+
+        if (u.getPassword() == null || !u.getPassword().equals(req.getPassword())) {
+            throw new IllegalArgumentException("invalid credentials");
+        }
+
+        String refreshToken = UUID.randomUUID().toString();
+        return new AuthResponse(refreshToken, u.getUsername());
     }
-
-    User user = new User();
-    user.setUsername(req.username);
-    user.setEmail(req.email);
-    user.setPasswordHash(passwordEncoder.encode(req.password));
-
-    user = userRepository.save(user);
-
-    String refresh = UUID.randomUUID().toString();
-    Instant exp = Instant.now().plus(30, ChronoUnit.DAYS);
-
-    authRepository.save(new AuthToken(user.getId(), refresh, exp));
-
-    return new AuthResponse(refresh, user.getUsername());
-  }
-
-  public AuthResponse login(LoginRequest req) {
-<<<<<<< HEAD
-    if (req == null || req.email == null || req.password == null) {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "missing fields");
-    }
-
-    User user = userRepository.findByEmail(req.email)
-      .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "invalid credentials"));
-
-    if (!passwordEncoder.matches(req.password, user.getPasswordHash())) {
-      throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "invalid credentials");
-=======
-    User user = userRepository.findByEmail(req.email)
-      .orElseThrow(() -> new IllegalArgumentException("invalid credentials"));
-
-    if (!passwordEncoder.matches(req.password, user.getPasswordHash())) {
-      throw new IllegalArgumentException("invalid credentials");
->>>>>>> origin/Develop
-    }
-
-    String refresh = UUID.randomUUID().toString();
-    Instant exp = Instant.now().plus(30, ChronoUnit.DAYS);
-
-    authRepository.save(new AuthToken(user.getId(), refresh, exp));
-
-    return new AuthResponse(refresh, user.getUsername());
-  }
 }

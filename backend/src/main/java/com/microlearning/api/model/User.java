@@ -16,47 +16,65 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "user_id")
-  private Long userId;
+  private Long id;
 
+  @Column(name = "username")
   private String username;
-  private String password;
-  private String email;
-  private LocalDateTime created_at;
-  private LocalDateTime last_login;
 
-  public Long getUserId() {
-    return userId;
-  }
+  @Column(name = "password")
+  private String password;
+
+  @Column(name = "email", unique = true)
+  private String email;
+
+  @Column(name = "bio")
+  private String bio;
+
+  @Column(name = "avatar")
+  private String avatar;
+
+  @Column(name = "created_at")
+  private LocalDateTime createdAt;
+
+  @Column(name = "updated_at")
+  private LocalDateTime updatedAt;
+
+  @Column(name = "last_login")
+  private LocalDateTime lastLogin;
 
   public Long getId() {
-    return userId;
+    return id;
   }
 
-  public Long getUser_id() {
-    return userId;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public void setPasswordHash(String passwordHash) {
-    this.password = passwordHash;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getUsername() {
     return username;
   }
 
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
   public String getEmail() {
     return email;
   }
 
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public String getPasswordHash() {
+    return password;
+  }
+
+  public void setPasswordHash(String passwordHash) {
+    this.password = passwordHash;
+  }
+
+  public String getPassword() {
     return password;
   }
 
@@ -64,19 +82,43 @@ public class User {
     this.password = password;
   }
 
-  public LocalDateTime getCreated_at() {
-    return created_at;
+  public String getBio() {
+    return bio;
   }
 
-  public void setCreated_at(LocalDateTime created_at) {
-    this.created_at = created_at;
+  public void setBio(String bio) {
+    this.bio = bio;
   }
 
-  public LocalDateTime getLast_login() {
-    return last_login;
+  public String getAvatar() {
+    return avatar;
   }
 
-  public void setLast_login(LocalDateTime last_login) {
-    this.last_login = last_login;
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public LocalDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(LocalDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public LocalDateTime getLastLogin() {
+    return lastLogin;
+  }
+
+  public void setLastLogin(LocalDateTime lastLogin) {
+    this.lastLogin = lastLogin;
   }
 }
