@@ -3,14 +3,17 @@ package com.microlearning.api.repository;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import com.microlearning.api.model.AuthToken;
 
-@Repository
 public interface AuthRepository extends JpaRepository<AuthToken, Long> {
+  void deleteByUserId(Long userId);
 
   Optional<AuthToken> findByToken(String token);
 
-  void deleteByUserId(Long userId);
+  boolean existsByToken(String token);
+
+  // add these if you use them anywhere
+  Optional<AuthToken> findByUserId(Long userId);
+  boolean existsByUserId(Long userId);
 }

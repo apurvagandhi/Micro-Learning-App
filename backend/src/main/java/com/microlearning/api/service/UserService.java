@@ -16,41 +16,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// @Service
-// public class UserService {
-//     String subject = SecurityContextHolder.getContext().getAuthentication().getName();
-//     Long userId = Long.parseLong(subject);
-
-//     @Autowired
-//     private UserRepository userRepository;
-
-//     // User currentUser = getCurrentUser();
-    
-//     /* */
-//     public void deleteUserProfile(){
-//         // userRepository.deleteById(currentUser);
-//     }
-
-//     public UserResponse updateUserProfile(String username, String email){
-
-//     }
-
-//     public UserResponse getUserProfile(){
-//         User user = getCurrentUserID(userId);
-
-//         return new UserResponse(
-//             user.getName(),
-//             user.getEmail()
-//         );
-//     }
-
-//     /*Grabs Current User */
-//     public User getCurrentUserID(){
-//        return userRepository.findById(userId).orElse(null);
-//     }
-
-
-
 @Service
 public class UserService {
 
@@ -68,7 +33,7 @@ public class UserService {
             user.getUsername(),
             user.getBio(),
             user.getAvatar(),
-            user.getCreated_at()
+            user.getCreatedAt()
         );
     }
 
@@ -79,17 +44,17 @@ public class UserService {
 
         // Only update fields that were provided (non-null)
         if (request.username != null) user.setUsername(request.username);
-        if (request.bio != null)      user.setBio(request.bio);
-        if (request.avatar != null)   user.setAvatar(request.avatar);
+        if (request.bio != null) user.setBio(request.bio);
+        if (request.avatar != null) user.setAvatar(request.avatar);
 
-        user.setUpdated_at(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
         userRepository.save(user);
 
         return new UserResponse(
             user.getId(),
             user.getUsername(),
             user.getBio(),
-            user.getUpdated_at()
+            user.getUpdatedAt()
         );
     }
 
@@ -106,13 +71,13 @@ public class UserService {
         Page<User> page = userRepository.findAll(PageRequest.of(skip / take, take));
 
         List<UserResponse> userResponses = page.getContent().stream()
-            .map(user -> new UserResponse(
-                user.getId(),
-                user.getEmail(),
-                user.getUsername(),
-                user.getBio(),
-                user.getAvatar(),
-                user.getCreated_at()
+            .map(u -> new UserResponse(
+                u.getId(),
+                u.getEmail(),
+                u.getUsername(),
+                u.getBio(),
+                u.getAvatar(),
+                u.getCreatedAt()
             ))
             .collect(Collectors.toList());
 
