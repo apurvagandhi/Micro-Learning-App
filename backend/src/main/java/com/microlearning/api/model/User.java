@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,13 +20,14 @@ public class User {
   @Column(name = "user_id")
   private Long id;
 
-  @Column(name = "username")
+  @Column(name = "username", nullable = false)
   private String username;
 
-  @Column(name = "password")
+  // Store hashed password here
+  @Column(name = "password", nullable = false)
   private String password;
 
-  @Column(name = "email", unique = true)
+  @Column(name = "email", unique = true, nullable = false)
   private String email;
 
   @Column(name = "bio")
@@ -41,6 +44,18 @@ public class User {
 
   @Column(name = "last_login")
   private LocalDateTime lastLogin;
+
+  @PrePersist
+  void onCreate() {
+    LocalDateTime now = LocalDateTime.now();
+    this.createdAt = now;
+    this.updatedAt = now;
+  }
+
+  @PreUpdate
+  void onUpdate() {
+    this.updatedAt = LocalDateTime.now();
+  }
 
   public Long getId() {
     return id;
@@ -72,14 +87,6 @@ public class User {
 
   public void setPasswordHash(String passwordHash) {
     this.password = passwordHash;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
   public String getBio() {
