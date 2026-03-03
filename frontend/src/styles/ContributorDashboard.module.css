@@ -1,0 +1,485 @@
+@import './variables.css';
+
+.adminContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--ink-soft);
+  font-size: 1.125rem;
+}
+
+.section {
+  background: var(--cloud);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.configForm {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.configInput {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--sky-mid);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cloud);
+  transition: border-color 0.2s ease;
+}
+
+.configInput:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.helpText {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.primaryButton {
+  background: var(--accent);
+  color: var(--cloud);
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.primaryButton:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 111, 212, 0.3);
+}
+
+.saveButton {
+  background: var(--accent);
+  color: var(--cloud);
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.saveButton:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 111, 212, 0.3);
+}
+
+.sectionSpacing {
+  margin-top: 2rem;
+}
+
+.secondaryButton {
+  background: var(--cloud);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.secondaryButton:hover {
+  background: var(--accent-light);
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 320px));
+  gap: 1rem;
+  justify-content: start;
+}
+
+.courseCard {
+  background: linear-gradient(135deg, var(--sky-light) 0%, var(--cloud) 100%);
+  border: 1px solid var(--sky-mid);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.courseCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.courseTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.courseDescription {
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.courseMeta {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+}
+
+.courseTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.courseTag {
+  background: var(--cloud);
+  border: 1px solid var(--sky-mid);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.courseActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.analyticsPanel {
+  background: var(--cloud);
+  border: 1px solid var(--sky-mid);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.analyticsItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.analyticsLabel {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.analyticsValue {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.statusBadge {
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.statusPending {
+  background: #fff4d6;
+  color: #8a5a00;
+  border-color: #f2cc7e;
+}
+
+.statusApproved {
+  background: #e6f6eb;
+  color: #1a6e36;
+  border-color: #97d7a9;
+}
+
+.statusRejected {
+  background: #fde9e9;
+  color: #9b1c1c;
+  border-color: #f3aaaa;
+}
+
+.emptyState {
+  margin: 0;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px dashed var(--sky-mid);
+  background: var(--sky-light);
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.createGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.createCard {
+  border: 1px solid var(--sky-mid);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--sky-light) 0%, var(--cloud) 100%);
+  min-height: 220px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.createCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.activeCreateCard {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(59, 111, 212, 0.2);
+}
+
+.createTitle {
+  color: var(--ink);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 1.25rem;
+}
+
+.createPlus {
+  color: var(--accent);
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.createHelper {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.createForm {
+  margin-top: 2rem;
+  border: 1px solid var(--sky-mid);
+  border-radius: var(--radius);
+  background: var(--sky-light);
+  padding: 1.5rem;
+}
+
+.createFormTitle {
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.textareaInput {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.timeSelectors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.timeSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.timeSelector label {
+  font-weight: 500;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.tagsInputContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border: 2px solid var(--sky-mid);
+  border-radius: 8px;
+  background: var(--cloud);
+}
+
+.tagsInputContainer:focus-within {
+  border-color: var(--accent);
+}
+
+.tagsInput {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  min-width: 180px;
+  flex: 1;
+  background: transparent;
+  color: var(--ink);
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--sky-light);
+  border: 1px solid var(--sky-mid);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.875rem;
+}
+
+.tagRemoveButton {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.tagRemoveButton:hover {
+  color: var(--accent);
+}
+
+.typeSpecificSection {
+  border-top: 1px solid var(--sky-mid);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.lessonTextInput {
+  resize: vertical;
+  min-height: 220px;
+}
+
+.wordCount {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+.uploadSummary {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.saveStatus {
+  margin: 0.75rem 0 0;
+  color: #1a6e36;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .adminContainer {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .courseCardHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .courseActions .primaryButton,
+  .courseActions .secondaryButton,
+  .formActions .primaryButton,
+  .formActions .saveButton {
+    width: 100%;
+  }
+
+  .createCard {
+    min-height: 190px;
+  }
+
+  .timeSelectors {
+    grid-template-columns: 1fr;
+  }
+
+  .tagsInput {
+    min-width: 120px;
+  }
+}

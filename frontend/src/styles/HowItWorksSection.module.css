@@ -1,0 +1,44 @@
+.section {
+  padding: 100px 48px;
+  background: linear-gradient(160deg, #eaf4fb 0%, #f0eefc 100%);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.step {
+  text-align: center;
+}
+
+.stepNum {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-family: 'Lora', serif;
+}
+
+.stepTitle {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.stepDesc {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}

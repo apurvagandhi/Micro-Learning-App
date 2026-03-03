@@ -1,0 +1,398 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 110px 24px 80px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #d6eaf5 0%, #eaf4fb 45%, #f0eefc 100%);
+}
+
+/*Blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.blob1 {
+  width: 500px;
+  height: 500px;
+  background: #c8dff5;
+  top: -100px;
+  left: -120px;
+  animation-delay: 0s;
+}
+
+.blob2 {
+  width: 360px;
+  height: 360px;
+  background: #dcd6f7;
+  bottom: 0;
+  right: -80px;
+  animation-delay: -3s;
+}
+
+.blob3 {
+  width: 260px;
+  height: 260px;
+  background: #fde8c8;
+  bottom: 100px;
+  left: 15%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-24px) scale(1.03); }
+}
+
+/* Decorative paper strips */
+.paperStrip {
+  position: absolute;
+  left: -20px;
+  top: 200px;
+  width: 60px;
+  height: 340px;
+  background: repeating-linear-gradient(
+    #f5f0e8, #f5f0e8 28px,
+    #d9cfc0 28px, #d9cfc0 29px
+  );
+  border-radius: 0 8px 8px 0;
+  opacity: 0.6;
+}
+
+.paperStrip2 {
+  position: absolute;
+  right: -20px;
+  bottom: 120px;
+  width: 60px;
+  height: 220px;
+  background: repeating-linear-gradient(
+    #f5eed8, #f5eed8 28px,
+    #d9cc99 28px, #d9cc99 29px
+  );
+  border-radius: 8px 0 0 8px;
+  opacity: 0.5;
+}
+
+/* Hero text content */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 700px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  border: 1px solid rgba(59, 111, 212, 0.2);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(59, 111, 212, 0.1);
+  animation: fadeUp 0.6s ease both;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.title {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 20px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* UI Preview window */
+.uiPreview {
+  position: relative;
+  z-index: 2;
+  margin-top: 70px;
+  width: 100%;
+  max-width: 880px;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.uiWindow {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.uiTitlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: #f8f8fb;
+  border-bottom: 1px solid #ededf5;
+}
+
+.dotR { width: 11px; height: 11px; border-radius: 50%; background: #fc7373; }
+.dotY { width: 11px; height: 11px; border-radius: 50%; background: #fcc35a; }
+.dotG { width: 11px; height: 11px; border-radius: 50%; background: #5adb8a; }
+
+.uiTab {
+  margin-left: 16px;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.uiBody {
+  display: flex;
+  height: 360px;
+}
+
+.uiSidebar {
+  width: 220px;
+  border-right: 1px solid #ededf5;
+  padding: 20px 0;
+  flex-shrink: 0;
+  background: #fafafa;
+}
+
+.uiSbHeader {
+  padding: 0 18px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.uiSbItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  cursor: default;
+  transition: background 0.15s;
+}
+
+.uiSbItem.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.uiSbItem:not(.active):hover {
+  background: #f0f0f7;
+}
+
+.uiSbIcon { font-size: 1rem; }
+
+.uiMain {
+  flex: 1;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.uiMainTitle {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.uiCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.uiCard {
+  border-radius: var(--radius);
+  padding: 14px;
+  font-size: 0.78rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.uiCardGreen  { background: var(--green); }
+.uiCardPink   { background: var(--pink); }
+.uiCardYellow { background: var(--yellow); }
+.uiCardPurple { background: var(--purple); }
+
+.uiCardLabel {
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+
+.uiCardMeta {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  margin-bottom: 8px;
+}
+
+.uiCardBar {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.uiCardBarFill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* Floating chips */
+.floatChip {
+  position: absolute;
+  background: white;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  color: var(--ink);
+  animation: chipFloat 6s ease-in-out infinite;
+}
+
+.chip1 { top: -18px; left: -40px; animation-delay: 0s; }
+.chip2 { top: 60px; right: -50px; animation-delay: -2s; }
+.chip3 { bottom: 30px; left: -50px; animation-delay: -4s; }
+
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero {
+    padding: 100px 16px 60px;
+  }
+
+  /* Hide paper strips they overflow on narrow screens */
+  .paperStrip,
+  .paperStrip2 {
+    display: none;
+  }
+
+  /* Hide floating chips they get clipped off-screen */
+  .floatChip {
+    display: none;
+  }
+
+  .uiPreview {
+    margin-top: 48px;
+    /* Pull edge-to-edge so it feels intentional rather than squished */
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  .uiWindow {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  /* Hide the sidebar not enough room */
+  .uiSidebar {
+    display: none;
+  }
+
+  .uiBody {
+    height: auto;
+  }
+
+  .uiMain {
+    padding: 16px;
+  }
+
+  .uiMainTitle {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .uiCardsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .uiCard {
+    padding: 10px;
+  }
+
+  .uiCardLabel {
+    font-size: 0.72rem;
+  }
+
+  .uiCardMeta {
+    font-size: 0.65rem;
+  }
+}
+
+/* Stack to single column on very small screens */
+@media (max-width: 400px) {
+  .uiCardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
