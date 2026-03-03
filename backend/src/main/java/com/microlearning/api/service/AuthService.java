@@ -4,8 +4,10 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.microlearning.api.dto.AuthResponse;
 import com.microlearning.api.dto.LoginRequest;
@@ -31,8 +33,12 @@ public class AuthService {
   }
 
   public AuthResponse register(RegisterRequest req) {
+    if (req == null || req.email == null || req.password == null || req.username == null) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "missing fields");
+    }
+
     if (userRepository.existsByEmail(req.email)) {
-      throw new IllegalArgumentException("email already exists");
+      throw new ResponseStatusException(HttpStatus.CONFLICT, "email already exists");
     }
 
     User user = new User();
@@ -51,11 +57,15 @@ public class AuthService {
   }
 
   public AuthResponse login(LoginRequest req) {
+    if (req == null || req.email == null || req.password == null) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "missing fields");
+    }
+
     User user = userRepository.findByEmail(req.email)
-      .orElseThrow(() -> new IllegalArgumentException("invalid credentials"));
+      .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "invalid credentials"));
 
     if (!passwordEncoder.matches(req.password, user.getPasswordHash())) {
-      throw new IllegalArgumentException("invalid credentials");
+      throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "invalid credentials");
     }
 
     String refresh = UUID.randomUUID().toString();
