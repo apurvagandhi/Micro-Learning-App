@@ -1,109 +1,82 @@
 package com.microlearning.api.model;
-import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-/* Data Base Table */
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
-/* Data Base Table Name */
 @Table(name = "accounts")
 public class User {
 
-    /* PRIMARY KEY */
-    @Id
-    /* Determine userId generation by database SERIAL NUMBER */
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")   // maps Java field "userId" → DB column "user_id"
-    private Long userId;        // renamed from user_id to userId
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "user_id")
+  private Long userId;
 
-    public Long getUserId() {
-        return userId;
-    }
+  private String username;
+  private String password;
+  private String email;
+  private LocalDateTime created_at;
+  private LocalDateTime last_login;
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+  public Long getUserId() {
+    return userId;
+  }
 
-    // Alias so AuthService user.getId() works
-    public Long getId() {
-        return userId;
-    }
+  public Long getId() {
+    return userId;
+  }
 
-    /* Columns */
-    private String username;
-    private String password;
-    private String email;
-    private String bio;
-    private String avatar;
-    private LocalDateTime created_at;
-    private LocalDateTime last_login;
-    private LocalDateTime updated_at;
+  public Long getUser_id() {
+    return userId;
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setPasswordHash(String passwordHash) {
+    this.password = passwordHash;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public String getPasswordHash() {
-        return password;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setPasswordHash(String passwordHash) {
-        this.password = passwordHash;
-    }
+  public String getPasswordHash() {
+    return password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public String getBio() {
-        return bio;
-    }
+  public LocalDateTime getCreated_at() {
+    return created_at;
+  }
 
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
+  public void setCreated_at(LocalDateTime created_at) {
+    this.created_at = created_at;
+  }
 
-    public String getAvatar() {
-        return avatar;
-    }
+  public LocalDateTime getLast_login() {
+    return last_login;
+  }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public LocalDateTime getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(LocalDateTime created_at) {
-        this.created_at = created_at;
-    }
-
-    public LocalDateTime getLast_login() {
-        return last_login;
-    }
-
-    public void setLast_login(LocalDateTime last_login) {
-        this.last_login = last_login;
-    }
-
-    public LocalDateTime getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(LocalDateTime updated_at) {
-        this.updated_at = updated_at;
-    }
+  public void setLast_login(LocalDateTime last_login) {
+    this.last_login = last_login;
+  }
 }

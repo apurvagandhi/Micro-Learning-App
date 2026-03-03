@@ -4,8 +4,13 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
+<<<<<<< HEAD
+import org.springframework.http.HttpStatus;
+=======
+>>>>>>> origin/Develop
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.microlearning.api.dto.AuthResponse;
 import com.microlearning.api.dto.LoginRequest;
@@ -31,8 +36,17 @@ public class AuthService {
   }
 
   public AuthResponse register(RegisterRequest req) {
+<<<<<<< HEAD
+    if (req == null || req.email == null || req.password == null || req.username == null) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "missing fields");
+    }
+
+    if (userRepository.existsByEmail(req.email)) {
+      throw new ResponseStatusException(HttpStatus.CONFLICT, "email already exists");
+=======
     if (userRepository.existsByEmail(req.email)) {
       throw new IllegalArgumentException("email already exists");
+>>>>>>> origin/Develop
     }
 
     User user = new User();
@@ -51,11 +65,23 @@ public class AuthService {
   }
 
   public AuthResponse login(LoginRequest req) {
+<<<<<<< HEAD
+    if (req == null || req.email == null || req.password == null) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "missing fields");
+    }
+
+    User user = userRepository.findByEmail(req.email)
+      .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "invalid credentials"));
+
+    if (!passwordEncoder.matches(req.password, user.getPasswordHash())) {
+      throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "invalid credentials");
+=======
     User user = userRepository.findByEmail(req.email)
       .orElseThrow(() -> new IllegalArgumentException("invalid credentials"));
 
     if (!passwordEncoder.matches(req.password, user.getPasswordHash())) {
       throw new IllegalArgumentException("invalid credentials");
+>>>>>>> origin/Develop
     }
 
     String refresh = UUID.randomUUID().toString();
